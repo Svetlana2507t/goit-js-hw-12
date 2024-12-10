@@ -26,7 +26,7 @@ export { loadMoreBtn };
 
 let query;
 
-let page = 33;
+let page = 1;
 let per_page = 15;
 let scrollOffset = 300; // Default value for scrolling down
 

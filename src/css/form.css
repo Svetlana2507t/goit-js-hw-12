@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  padding-top: 24px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.search-input {
+  flex: 1; /* Allow the input to take the remaining space */
+  width: 360px;
+  height: 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  border-radius: 8px;
+  border: solid 2px #808080;
+  padding: 8px 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+/* .label {
+  text-align: center;
+} */
+.input-button-row {
+  display: flex; /* Arrange input and button side by side */
+  flex-direction: row;
+  align-items: center; /* Align the input and button vertically */
+  gap: 8px; /* Add spacing between the input and button */
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 86px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  /* margin-bottom: 8px; */
+
+  /* line-height: 24px; */
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+.search-button:hover {
+  background-color: #6c8cff;
+}
+
+.image-cards {
+  z-index: 1;
+  /* position: relative; */
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.img-card {
+  width: calc((100% - 4 * 10px) / 5);
+  border: solid 2px #808080;
+  border-radius: 8px;
+}
+.img-img {
+  width: 100%;
+  display: flex;
+}
+.img-info {
+  display: flex;
+  align-items: center;
+
+  flex-direction: row;
+  align-content: center;
+  gap: 8px;
+  padding: 8px;
+}
+.img-info-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  justify-content: space-around;
+}
+.load-more-button {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #4e75ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.load-more-button:hover {
+  background-color: #6c8cff;
+}
+
+/* .load-more-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+} */
+.hidden {
+  display: none;
+}

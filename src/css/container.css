@@ -14,6 +14,17 @@
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1200px) {
   .container {
-    max-width: 1200px;
+    max-width: 1440px;
+    margin: 0 auto;
   }
+}
+.container {
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Ensures children stack vertically */
+  gap: 16px;
+  align-items: center; /* Horizontally centers the form */
+  justify-content: top; /* Vertically centers the form */
+
+  margin: 0 auto; /* Ensures the container itself is centered */
+  padding: 0 16px; /* Keeps the responsive padding */
 }

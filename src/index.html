@@ -2,21 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Axios</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
-
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
-    </main>
+      <h1 class="hidden">Axios</h1>
+      <div class="container">
+        <form action="submit" class="js-search-form search-form">
+          <div class="form-group">
+            <label for="query" class="label"
+              >Please enter the searched word here:</label
+            >
+            <div class="input-button-row">
+              <input
+                type="text"
+                id="query"
+                name="query"
+                class="search-input"
+                autocomplete="off"
+                required
+                placeholder="Search images..."
+              />
+              <!-- </div>
 
-    <load src="./partials/footer.html" />
+                <div class="form-group"> -->
+              <button class="search-button">Search</button>
+            </div>
+          </div>
+        </form>
+
+        <ul class="js-list image-cards"></ul>
+      </div>
+
+      <div class="container">
+        <button id="load-more" class="hidden load-more-button" type="button">
+          Load More
+        </button>
+      </div>
+
+      <div id="loader" class="loader disabled" data-text="Loading..."></div>
+      <!-- Loads the specified .html file -->
+    </main>
 
     <script type="module" src="./main.js"></script>
   </body>

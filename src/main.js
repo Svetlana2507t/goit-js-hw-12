@@ -37,7 +37,7 @@ const lightbox = new SimpleLightbox('.image-cards a');
 form.addEventListener('submit', event => {
   event.preventDefault();
   query = qInput.value.trim();
-  //page = 1; //Reset page to 1 for a new search
+  page = 1; //Reset page to 1 for a new search
   if (!query) {
     iziToast.warning({
       title: 'Error',
@@ -66,6 +66,18 @@ form.addEventListener('submit', event => {
       clearCardContainer(cardContainer); // Clear the cardContainer
       const markup = createMarkup(data.hits);
       renderMarkup(cardContainer, markup); // Render markup
+
+      let totalPages = Math.ceil(data.totalHits / per_page);
+      //Check if all imgs are on 1 page || 0 imgs, so there is no more images to display:
+      if (totalPages <= page) {
+        loadMoreBtn.classList.add('hidden'); // Hide the button
+        iziToast.warning({
+          title: 'No more pages',
+          message: "We're sorry, but you've reached the end of search results.",
+        });
+        return;
+      }
+
       loadMoreBtn.classList.replace('hidden', 'load-more-button'); //LoadMore is visible
       //console.log('Updated loadMoreBtn classList:', [...loadMoreBtn.classList]);
 
@@ -96,7 +108,10 @@ async function onClickLoadMore() {
   page += 1;
   //console.log('page:', page);
   try {
+    loader.classList.remove('disabled'); // Show loader
+
     const data = await fetchImages(query, per_page, page);
+
     let totalPages = Math.ceil(data.totalHits / per_page);
     //console.log(`totalPages = ${totalPages}`);
     if (page >= totalPages) {
@@ -111,6 +126,7 @@ async function onClickLoadMore() {
     // Append the new items to the gallery
     const markup = createMarkup(data.hits);
     renderMarkup(cardContainer, markup);
+    loader.classList.add('disabled'); // Hide loader
     //Scroll
     window.scrollBy({
       top: scrollOffset, // Use the updated value

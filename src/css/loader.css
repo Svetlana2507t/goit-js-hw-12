@@ -1,20 +1,13 @@
-.loader.disabled {
-  display: none;
-}
 .loader {
-  display: block;
-  position: fixed; /* or absolute */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-
+  display: inline-block;
+  margin: 20px auto; /* To center the loader horizontally within its container */
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  position: relative;
+  position: relative; /* Ensures pseudo-elements are positioned correctly */
   animation: rotate 1s linear infinite;
 }
+
 .loader::before,
 .loader::after {
   content: '';
@@ -25,12 +18,14 @@
   border: 5px solid #fff;
   animation: prixClipFix 2s linear infinite;
 }
+
 .loader::after {
   inset: 8px;
   transform: rotate3d(90, 90, 0, 180deg);
   border-color: #ff3d00;
 }
 
+/* Keep existing keyframes */
 @keyframes rotate {
   0% {
     transform: rotate(0deg);

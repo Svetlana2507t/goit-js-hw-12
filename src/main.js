@@ -71,6 +71,7 @@ form.addEventListener('submit', event => {
       //Check if all imgs are on 1 page || 0 imgs, so there is no more images to display:
       if (totalPages <= page) {
         loadMoreBtn.classList.add('hidden'); // Hide the button
+        loader.classList.add('disabled'); // Hide loader
         iziToast.warning({
           title: 'No more pages',
           message: "We're sorry, but you've reached the end of search results.",
@@ -117,6 +118,7 @@ async function onClickLoadMore() {
     if (page >= totalPages) {
       console.log("We're sorry, but you've reached the end of search results.");
       loadMoreBtn.classList.add('hidden'); // Hide the button
+      loader.classList.add('disabled'); // Hide loader
       iziToast.warning({
         title: 'No more pages',
         message: "We're sorry, but you've reached the end of search results.",

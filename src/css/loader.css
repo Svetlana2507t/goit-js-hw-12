@@ -1,5 +1,7 @@
 .loader {
   display: inline-block;
+  visibility: visible;
+  opacity: 1;
   margin: 20px auto; /* To center the loader horizontally within its container */
   width: 88px;
   height: 88px;

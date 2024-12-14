@@ -21,11 +21,11 @@ export async function fetchImages(query, per_page = 20, page) {
     });
     return response.data;
   } catch (error) {
-    console.log(error.message);
+    //console.log(error.message);
     iziToast.error({
       title: 'Error',
       message: `Error: ${error.message}`,
     });
-    throw error;
+    //throw error;
   }
 }

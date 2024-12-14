@@ -4,8 +4,11 @@
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  position: relative; /* Ensures pseudo-elements are positioned correctly */
+  position: relative;
   animation: rotate 1s linear infinite;
+}
+.loader.disabled {
+  display: none;
 }
 
 .loader::before,

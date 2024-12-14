@@ -27,7 +27,7 @@ export { loadMoreBtn };
 let query;
 
 let page = 1;
-let per_page = 100;
+let per_page = 15;
 let scrollOffset = 300; // Default value for scrolling down
 
 loadMoreBtn.addEventListener('click', onClickLoadMore);
@@ -120,13 +120,14 @@ async function onClickLoadMore() {
     const data = await fetchImages(query, per_page, page);
 
     loader.classList.remove('disabled'); // Enable loader
-    console.log('Loader enabled');
-    await new Promise(resolve => setTimeout(resolve, 1500)); // Delay for visibility
-    loader.classList.add('disabled'); // Disable loader
+    //loader.className = loader.className.replace('disabled', '').trim();
+    //console.log('Loader enabled', loader.classList);
+    //await new Promise(resolve => setTimeout(resolve, 1500)); // Delay for visibility
+    //  loader.classList.add('disabled'); // Disable loader
 
-    // console.log('Before enabling loader:', loader.classList);
-    // loader.classList.remove('disabled'); // Enable loader
-    // console.log('After enabling loader:', loader.classList);
+    //console.log('Before enabling loader:', loader.classList);
+    loader.classList.remove('disabled'); // Enable loader
+    //console.log('After enabling loader:', loader.classList);
 
     let totalPages = Math.ceil(data.totalHits / per_page);
     //console.log(`totalPages = ${totalPages}`);
@@ -143,7 +144,7 @@ async function onClickLoadMore() {
     });
 
     if (page >= totalPages) {
-      console.log("We're sorry, but you've reached the end of search results.");
+      // console.log("We're sorry, but you've reached the end of search results.");
       loadMoreBtn.classList.add('hidden'); // Hide the button
       loader.classList.add('disabled'); // Hide loader
       iziToast.warning({

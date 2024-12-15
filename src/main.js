@@ -33,7 +33,7 @@ let scrollOffset = 300; // Default value for scrolling down
 // loadMoreBtn.addEventListener('click', onClickLoadMore);
 // console.log('Adding click listener to loadMoreBtn');
 if (!loadMoreBtn.dataset.listenerAttached) {
-  console.log('Adding click listener to loadMoreBtn');
+  // console.log('Adding click listener to loadMoreBtn');
   loadMoreBtn.addEventListener('click', onClickLoadMore);
   loadMoreBtn.dataset.listenerAttached = 'true'; // Mark listener as attached
 }
@@ -57,9 +57,9 @@ if (!window.__formSubmitListenerAttached) {
     //console.log('Submitted query:', query);
 
     // Show loader
-    console.log('Before enabling loader:', loader.classList);
+    //console.log('Before enabling loader:', loader.classList);
     loader.classList.remove('disabled'); // Enable loader
-    console.log('After enabling loader:', loader.classList);
+    //console.log('After enabling loader:', loader.classList);
 
     fetchImages(query, per_page, page)
       .then(data => {
@@ -114,7 +114,7 @@ if (!window.__formSubmitListenerAttached) {
       .finally(() => {
         // Hide loader
         loader.classList.add('disabled');
-        console.log('loader disabled:', loader.classList);
+        //console.log('loader disabled:', loader.classList);
       });
   });
 
